@@ -40,11 +40,13 @@
           $taxes = $hoursOfSalary * $rateOfSalary * 0.18;
 
           // output
-          echo "If salary has hours and rate. The hours = " . $hoursOfSalary . " h and the rate = ". $rateOfSalary . " $";
+          echo "If salary has hours and rate:
+          The hours = " . $hoursOfSalary . " h and the rate = $ ". $rateOfSalary;
           echo "<br />";
           echo "<br />";
-          echo "The pay will be " . $pay . " $.";
-          echo "The taxes will be " . $taxes . " $.";
+          echo "The pay will be $ " . $pay;
+          echo "<br />";
+          echo "The taxes will be $ " . $taxes;
           ?>
         </div>
       </div>
