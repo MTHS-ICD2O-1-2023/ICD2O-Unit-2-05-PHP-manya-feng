@@ -27,29 +27,26 @@
     </header>
     <main class="mdl-layout__content">
       <div class="right-image">
-        <img src="./images/income_tax.jpg" alt="income image" width="250" />
+        <img src="./images/income_tax.jpg" alt="income image" />
       </div>
-      <br />
-      <div class="page-content">Enter the hours and rate in h and $.</div>
       <div class="page-content-php">
-        <form action="answer.php" method="POST">
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="hours-of-salary">
-            <label class="mdl-textfield__label" for="base-of-triangle">Hours of salary (h)</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <br />
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="rate-of-salary">
-            <label class="mdl-textfield__label" for="height-of-rectangle">Rate of salary ($)</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
-          <br />
-          <!-- Accent-colored raised button with ripple -->
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-            Calculate
-          </button>
-        </form>
+        <div id="user-info">
+          <?php
+          $hoursOfSalary = $_POST["hours-of-salary"];
+          $rateOfSalary = $_POST["rate-of-salary"];
+
+          // process
+          $pay = $hoursOfSalary * $rateOfSalary * (1.00 - 0.18);
+          $taxes = $hoursOfSalary * $rateOfSalary * 0.18;
+
+          // output
+          echo "If salary has hours and rate. The hours = " . $hoursOfSalary . " h and the rate = ". $rateOfSalary . " $";
+          echo "<br />";
+          echo "<br />";
+          echo "The pay will be " . $pay . " $.";
+          echo "The taxes will be " . $taxes . " $.";
+          ?>
+        </div>
       </div>
     </main>
   </div>
